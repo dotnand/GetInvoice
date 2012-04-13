@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  unit_price: MyString
+  brand: MyString
+  quantity: 1
+  comments: MyText
+
+two:
+  name: MyString
+  unit_price: MyString
+  brand: MyString
+  quantity: 1
+  comments: MyText

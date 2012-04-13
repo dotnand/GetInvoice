@@ -1,0 +1,24 @@
+- title "Account"
+
+%p
+  %strong Display Name:
+  = @account.display_name
+%p
+  %strong Eamil:
+  = @account.eamil
+%p
+  %strong Phone:
+  = @account.phone
+%p
+  %strong Address:
+  = @account.address
+%p
+  %strong Refence:
+  = @account.refence
+
+%p
+  = link_to "Edit", edit_account_path(@account)
+  |
+  = link_to "Destroy", @account, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", accounts_path

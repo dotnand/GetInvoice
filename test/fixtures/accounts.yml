@@ -1,0 +1,13 @@
+one:
+  display_name: MyString
+  eamil: MyString
+  phone: 1
+  address: MyText
+  refence: 
+
+two:
+  display_name: MyString
+  eamil: MyString
+  phone: 1
+  address: MyText
+  refence: 

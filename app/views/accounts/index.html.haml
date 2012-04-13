@@ -1,0 +1,21 @@
+- title "Accounts"
+
+%table
+  %tr
+    %th Display name
+    %th Eamil
+    %th Phone
+    %th Address
+    %th Refence
+  - for account in @accounts
+    %tr
+      %td= account.display_name
+      %td= account.eamil
+      %td= account.phone
+      %td= account.address
+      %td= account.refence
+      %td= link_to 'Show', account
+      %td= link_to 'Edit', edit_account_path(account)
+      %td= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Account", new_account_path
