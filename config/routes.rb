@@ -2,7 +2,11 @@ Getinvoice::Application.routes.draw do
   resources :accounts
 
   resources :products
-
+  namespace :admin do
+	resources :invoices do
+		get :autocomplete_product_name, :on => :member
+	end
+  end
   devise_for :users, ActiveAdmin::Devise.config
 
   resources :homes
@@ -10,6 +14,12 @@ Getinvoice::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :admin_users do
+    get "admin/login" => "devise/sessions#new"
+    get "admin/register" => "devise/registrations#new"
+  end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412120651) do
+ActiveRecord::Schema.define(:version => 20120413125931) do
 
   create_table "accounts", :force => true do |t|
     t.string   "display_name"
@@ -54,6 +54,31 @@ ActiveRecord::Schema.define(:version => 20120412120651) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "invoices", :force => true do |t|
+    t.integer  "account_id"
+    t.date     "invoice_date"
+    t.string   "status"
+    t.string   "tax"
+    t.string   "total"
+    t.string   "discount"
+    t.string   "shipping_cost"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "creator_id"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "invoice_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.string   "total"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
+  add_index "line_items", ["product_id"], :name => "index_line_items_on_product_id"
 
   create_table "products", :force => true do |t|
     t.string   "name"
