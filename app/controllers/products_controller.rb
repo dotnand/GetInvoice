@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  check_authorization
+  skip_authorization_check
   def index
     @products = Product.all
   end
@@ -33,6 +33,16 @@ class ProductsController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  def find_unit_price
+    @product = Product.find(params[:id])
+    unit_price = @product.unit_price 
+    @msg = { "success" => "true", "unit_price" => unit_price}
+    respond_to do |format|
+      format.html
+      format.json { render :json => @msg }
+    end
+ end
 
   def destroy
     @product = Product.find(params[:id])

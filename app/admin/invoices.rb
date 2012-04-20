@@ -24,9 +24,10 @@ ActiveAdmin.register Invoice do
     end
     f.has_many :line_items do |item|
       item.inputs "Item" do
-        item.input :product, :as => :autocomplete, :url => "autocomplete_product_name"
-        item.input :quantity
-        item.input :total
+        item.input :product, :input_html => { :class => 'select_product' }
+		item.input :unit_price , :input_html => { :class => 'unit_price_col can_change_col' } 
+        item.input :quantity, :input_html => { :class => 'quantity_col can_change_col'} 
+        item.input :total, :input_html => { :class => 'total_col' ,:readonly  => true} 
       end
     end
    f.buttons
@@ -36,8 +37,25 @@ ActiveAdmin.register Invoice do
     filter :invoice_date
   show do
     attributes_table :id, :account , :invoice_date , :status , :shipping_cost, :discount,:tax, :total
+  
+	attributes_table_for invoice do
+		dis = invoice.total.to_f - (invoice.total.to_f* invoice.discount.to_f/100)
+		tax = dis + (dis * invoice.tax.to_f/100)
+      row("Grand Total") { invoice.grand_total }
+    end
+  panel "Items" do
+    table_for invoice.line_items do
+      column :product 
+      column "unit_price" do |item|
+        item.product.unit_price
+      end
+	  column :quantity
+      column :total
+    end
   end
- controller do
-    autocomplete :product, :name, :full => true
+
   end
+ #controller do
+  #  autocomplete :product, :name, :full => true, :value => [:id]
+  #end
 end

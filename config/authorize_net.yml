@@ -1,0 +1,8 @@
+default:
+  api_login_id: 3CZ7qa6Yn
+  api_transaction_key: 7DUYN844asu6g6sq
+  merchant_hash_value: \
+
+development: 
+test: 
+production: 
