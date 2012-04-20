@@ -1,0 +1,16 @@
+= form_for @payment_notification do |f|
+  = f.error_messages
+  %p
+    = f.label :params
+    %br
+    = f.text_area :params
+  %p
+    = f.label :cart_id
+    %br
+    = f.number_field :cart_id
+  %p
+    = f.label :status
+    %br
+    = f.text_field :status
+  %p
+    = f.submit

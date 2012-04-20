@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419121958) do
+ActiveRecord::Schema.define(:version => 20120420104054) do
 
   create_table "accounts", :force => true do |t|
     t.string   "display_name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20120419121958) do
     t.datetime "updated_at",    :null => false
     t.integer  "creator_id"
     t.string   "grand_total"
+    t.date     "purchased_at"
   end
 
   create_table "line_items", :force => true do |t|
@@ -81,6 +82,20 @@ ActiveRecord::Schema.define(:version => 20120419121958) do
 
   add_index "line_items", ["invoice_id"], :name => "index_line_items_on_invoice_id"
   add_index "line_items", ["product_id"], :name => "index_line_items_on_product_id"
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.integer  "invoice_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.string   "params"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,9 @@
+- title "Payment Summary"
+%table
+  %tr
+    %th Total Amount
+  %tr
+    %td 
+      = @invoice.grand_total
+
+= link_to "Checkout", @invoice.paypal_url(homes_url, payment_notifications_url)

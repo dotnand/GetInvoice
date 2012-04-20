@@ -1,0 +1,18 @@
+- title "Payment Notification"
+
+%p
+  %strong Params:
+  = @payment_notification.params
+%p
+  %strong Cart:
+  = @payment_notification.cart_id
+%p
+  %strong Status:
+  = @payment_notification.status
+
+%p
+  = link_to "Edit", edit_payment_notification_path(@payment_notification)
+  |
+  = link_to "Destroy", @payment_notification, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", payment_notifications_path

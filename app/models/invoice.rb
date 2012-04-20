@@ -13,10 +13,31 @@ class Invoice < ActiveRecord::Base
 	line_items. each do |line|
 		tot += line.total.to_f
 	end
-	dis = tot.to_f - (tot.to_f* discount.to_f/100)
-	tax = dis + (dis * tax.to_f/100)
-	g_tot = tax + shipping_cost.to_f
+	tax_t = tot.to_f + (tot.to_f * tax.to_f/100.to_f)
+	g_tot = tax_t + shipping_cost.to_f
 	self.update_column(:total, tot)
 	self.update_column(:grand_total, g_tot)  #this update_column used bcoz skip callback 
   end
+  
+ def paypal_url(return_url, notify_url)
+  values = {
+    :business => 'seller_1334905018_biz@gmail.com',
+    :cmd => '_cart',
+    :upload => 1,
+    :return => return_url,
+    :invoice => id,
+	:notify_url => notify_url,
+	:shipping => shipping_cost,
+	:tax_cart => (tax.to_f/100)*total.to_f
+  }
+line_items.each_with_index do |item, index|
+    values.merge!({
+      "amount_#{index+1}" => item.unit_price,
+      "item_name_#{index+1}" => item.product.name,
+      "item_number_#{index+1}" => item.id,
+      "quantity_#{index+1}" => item.quantity
+    })
+  end
+  "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+end
 end

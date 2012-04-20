@@ -7,7 +7,7 @@ ActiveAdmin.register Invoice do
     column :invoice_date
     column :status
     column :shipping_cost
-    column :discount
+    #column :discount
     column :tax
     column :total
     #default_actions
@@ -18,7 +18,7 @@ ActiveAdmin.register Invoice do
       f.input :invoice_date
       f.input :status,  :as => :select, :collection => ["Received", "Pending", "Return", "Aproved"]
       f.input :shipping_cost
-      f.input :discount
+      #f.input :discount
       f.input :tax
       f.input :creator_id, :as => :hidden, :value => current_user.id
     end
@@ -36,11 +36,9 @@ ActiveAdmin.register Invoice do
     filter  :account
     filter :invoice_date
   show do
-    attributes_table :id, :account , :invoice_date , :status , :shipping_cost, :discount,:tax, :total
+    attributes_table :id, :account , :invoice_date , :status , :shipping_cost,:tax, :total
   
 	attributes_table_for invoice do
-		dis = invoice.total.to_f - (invoice.total.to_f* invoice.discount.to_f/100)
-		tax = dis + (dis * invoice.tax.to_f/100)
       row("Grand Total") { invoice.grand_total }
     end
   panel "Items" do

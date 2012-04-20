@@ -14,7 +14,7 @@ gem "nifty-generators", :group => :development
 gem "formtastic", "~> 2.1.1"
 gem "cancan"
 gem 'rails3-jquery-autocomplete'
-gem 'authorize-net', '~> 1.5.2'
+
 
 group :production do
 	gem 'pg'

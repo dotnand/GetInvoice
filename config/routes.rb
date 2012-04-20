@@ -1,17 +1,15 @@
 Getinvoice::Application.routes.draw do
-  match '/payments/payment', :to => 'payments#payment', :as => 'paymentspayment', :via => [:get]
 
-  match '/payments/relay_response', :to => 'payments#relay_response', :as => 'payments_relay_response', :via => [:post]
-
-  match '/payments/receipt', :to => 'payments#receipt', :as => 'payments_receipt', :via => [:get]
 
   resources :accounts
-
   resources :products
   namespace :admin do
 	resources :invoices do
 		get :autocomplete_product_name, :on => :member
 	end
+  end
+  resources :payment_notifications do
+	get :user_payment, :on => :collection
   end
   match 'product/find_unit_price/:id', :controller=>'products', :action => 'find_unit_price'
   devise_for :users, ActiveAdmin::Devise.config
