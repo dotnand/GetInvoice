@@ -1,9 +1,206 @@
-- title "Payment Summary"
-%table
-  %tr
-    %th Total Amount
-  %tr
-    %td 
-      = @invoice.grand_total
+%title Copy of Invoice - Crisp
+:css
+  @import url('https://themes.googleusercontent.com/fonts/css?kit=lK6TqNaRCmA0q0xCQYvSyA');ol{margin:0;padding:0}.c20{vertical-align:top;width:215.2pt;border-style:solid;background-color:#ececec;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c15{vertical-align:top;width:234pt;border-style:solid;background-color:#f5f5f5;border-color:#f5f5f5;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c7{vertical-align:middle;width:234pt;border-style:solid;background-color:#286ee6;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c19{vertical-align:top;width:224pt;border-style:solid;background-color:#f5f5f5;border-color:#f5f5f5;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c12{vertical-align:middle;width:74.2pt;border-style:solid;background-color:#286ee6;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c18{vertical-align:middle;width:81pt;border-style:solid;background-color:#286ee6;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c21{vertical-align:top;width:234.8pt;border-style:solid;border-color:#ffffff;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c3{vertical-align:top;width:74.2pt;border-style:solid;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c5{vertical-align:top;width:78.8pt;border-style:solid;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c28{vertical-align:top;width:233.2pt;border-style:solid;border-color:#ffffff;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c27{vertical-align:middle;width:78.8pt;border-style:solid;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c1{vertical-align:top;width:81pt;border-style:solid;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c11{vertical-align:top;width:234pt;border-style:solid;border-color:#efefef;border-width:1pt;padding:5pt 5pt 5pt 5pt}.c0{height:8pt;text-align:right;direction:ltr}.c25{max-width:468pt;background-color:#ffffff;padding:72pt 72pt 72pt 72pt}.c4{font-size:9pt;font-weight:bold}.c8{line-height:1.15;text-indent:-63pt}.c17{text-indent:-63pt;text-align:center}.c2{direction:ltr}.c30{font-size:9pt}.c6{height:8pt}.c16{font-size:15pt}.c10{border-collapse:collapse}.c13{text-align:right}.c29{line-height:1.15}.c9{font-weight:bold}.c23{height:40pt}.c26{height:27pt}.c24{background-color:#286ee6}.c14{color:#000000}.c22{height:0pt}.title{padding-top:0pt;line-height:1.0;text-align:left;color:#000000;font-size:14pt;font-family:"Arial";font-weight:bold;padding-bottom:0pt}.subtitle{padding-top:18pt;line-height:1.0;text-align:left;color:#666666;font-style:italic;font-size:24pt;font-family:"Georgia";padding-bottom:4pt}p{color:#666666;font-size:8pt;margin:0;font-family:"Arial"}h1{padding-top:0pt;line-height:1.0;text-align:left;color:#ffffff;font-size:8pt;background-color:#286ee6;font-family:"Arial";font-weight:bold;padding-bottom:0pt}h2{padding-top:18pt;line-height:1.0;text-align:left;color:#666666;font-size:14pt;font-family:"Arial";font-weight:bold;padding-bottom:4pt}h3{padding-top:0pt;line-height:1.0;text-align:left;color:#000000;font-size:8pt;font-family:"Arial";padding-bottom:0pt}h4{padding-top:12pt;line-height:1.0;text-align:left;color:#666666;font-style:italic;font-size:11pt;font-family:"Arial";padding-bottom:2pt}h5{padding-top:11pt;line-height:1.0;text-align:left;color:#666666;font-size:10pt;font-family:"Arial";font-weight:bold;padding-bottom:2pt}h6{padding-top:10pt;line-height:1.0;text-align:left;color:#666666;font-style:italic;font-size:10pt;font-family:"Arial";padding-bottom:2pt}%body.c25
+.invoice
+  %div
+    %p.c2.c8
+      %img{:height => "84", :src => "images/image00.png", :width => "790"}/
+  %p.c2.c6
+    %span
+  %p.c2.c6
+    %span.c16.c9
+  %a{:href => "#", :name => "38a3c4250653ec00cc61c1684f2106e0e577f68e"}
+  %a{:href => "#", :name => "0"}
+  %table.c10{:cellpadding => "0", :cellspacing => "0"}
+    %tbody
+      %tr
+        %td.c28
+          %p.c2.title
+            %a{:name => "h.wo1vov4esjam"}
+            %span INVOICE
+            %br
+            
+          %p
+            = @invoice.created_at.to_formatted_s(:long)
+        %td.c21
+          %h3.c2.c13
+            %a{:name => "h.gk0m3xomtser"}
+            %span 
+              %br
+              = @invoice.account.display_name
+          %h3.c2.c13
+            %a{:name => "h.gk0m3xomtser"}
+            %span 
+            = @invoice.account.email
+            %br
+            = @invoice.account.address
+          %p.c2.c6
+            %span
+  %p.c2.c6
+    %span.c16.c9
+  %a{:href => "#", :name => "9b50c75835c85852ec2fd6de199e331bf4a71701"}
+  %a{:href => "#", :name => "1"}
+  %table.c10{:cellpadding => "0", :cellspacing => "0"}
+    %tbody
+      %tr
+        %td.c7
+          %h1.c2
+            %a{:name => "h.cuxr88a7q4l7"}
+            %span Product
+        %td.c18
+          %h1.c2
+            %a{:name => "h.egqd53r4a50c"}
+            %span QTY
+        %td.c24.c27
+          %h1.c2
+            %a{:name => "h.ajiu4z7p9n2t"}
+            %span UNIT PRICE
+        %td.c12
+          %h1.c2
+            %a{:name => "h.s5s15jx2g2xh"}
+            %span TOTAL
+      - @invoice.line_items.each do |item|
+        %tr
+          %td.c11
+            %p.c2
+              %span
+                = item.product.name
+          %td.c1
+            %p.c2.c13
+              %span
+                = item.quantity
+          %td.c5
+            %p.c2.c13
+              %span
+                = item.product.unit_price
+          %td.c3
+            %p.c2.c13
+              %span
+                = item.total
+        %tr
+          %td.c11
+            %p.c0
+              %span.c4
+          %td.c1
+            %p.c0
+              %span.c4
+          %td.c5
+            %p.c0
+              %span.c4
+          %td.c3
+            %p.c0
+              %span.c4
+      %tr
+        %td.c11
+          %p.c0
+            %span.c4
+        %td.c1
+          %p.c0
+            %span.c4
+        %td.c5.c24
+          %h1.c2.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span SUB TOTAL
+        %td.c3.c24
+          %h1.c2.c13.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span= @invoice.total
+      %tr.no_back_ground
+        %td.c11
+          %p.c0
+            %span.c4
+        %td.c1
+          %p.c0
+            %span.c4
+        %td.c5.c24
+          %h1.c2.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span TAX %
+        %td.c3.c24
+          %h1.c2.c13.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span= @invoice.tax
+      %tr
+        %td.c11
+          %p.c0
+            %span.c4
+        %td.c1
+          %p.c0
+            %span.c4
+        %td.c5.c24
+          %h1.c2.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span GRAND TOTAL
+        %td.c3.c24
+          %h1.c2.c13.total
+            %a{:name => "h.sssg3aoj2tzb"}
+            %span= @invoice.grand_total
+  %p.c2.c6.c29
+    %span.c16.c9
+  %a{:href => "#", :name => "48300ed7adf452bda9db3dbeeb2881de3069754e"}
+  %a{:href => "#", :name => "2"}
+  %table.c10{:cellpadding => "0", :cellspacing => "0"}
+    %tbody
+      %tr
+        %td.c15
+          %p.c2.c6
+            %span.c9
+          %a{:href => "#", :name => "94134639e87faf65c836f784c0a56b8aeabf843c"}
+          %a{:href => "#", :name => "3"}
+          %table.c10{:cellpadding => "0", :cellspacing => "0"}
+            %tbody
+              %tr.c23
+                %td.c19
+                  %p.c2
+                    %span.c9 PAYMENT TERMS
+                  %p.c2
+                    %span To be made payable to First name, Last name
+                  %p.c2.c6
+                    %span.c9
+              %tr.c26
+                %td.c19
+                  %p.c2
+                    %span.c9 ADDRESS
+                  %p.c2
+                    %span 123 Main Street • Boulder, CO • 80026
+          %p.c2.c6
+            %span.c9
+        %td.c15
+          %p.c2.c6
+            %span.c9
+          %a{:href => "#", :name => "3d98349db41c1cad1eeb71df9cee6b8c0bbe9d40"}
+          %a{:href => "#", :name => "4"}
+          %table.c10{:cellpadding => "0", :cellspacing => "0"}
+            %tbody
+              %tr.c22
+                %td.c20
+                  %p.c2
+                    %span.c9 APPROVED BY
+              %tr.c22
+                %td.c20
+                  %p.c2
+                    %span.c9 NAME
+              %tr.c22
+                %td.c20
+                  %p.c2
+                    %span.c9 FOR
+              %tr.c22
+                %td.c20
+                  %p.c2
+                    %span.c9 DATE
+          %p.c2.c6
+            %span.c9
+  %p.c2.c6.c29
+    %span.c9.c16
+  %div
+    %p.c17.c2
+      %span.c30                      
+    %p.c2.c6.c17
+      %span
+    %p.c17.c2.c6
+      %span
+    %p.c17.c2
+      %img{:height => "32", :src => "images/image01.png", :width => "791"}/
+
 
 = link_to "Checkout", @invoice.paypal_url(homes_url, payment_notifications_url)
