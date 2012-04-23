@@ -1,8 +1,8 @@
 class PaymentNotificationsController < ApplicationController
 protect_from_forgery :except => [:create]
   def index
-    PaymentNotification.create!(:params => params, :invoice_id => params[:invoice], :status => params[:payment_status], :transaction_id => params[:txn_id])
-	render :nothing => true
+    #PaymentNotification.create!(:params => params, :invoice_id => params[:invoice], :status => params[:payment_status], :transaction_id => params[:txn_id])
+	#render :nothing => true
   end
 
   def show
