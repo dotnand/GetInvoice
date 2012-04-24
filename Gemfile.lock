@@ -158,7 +158,8 @@ GEM
       rack (>= 1.0)
 
 PLATFORMS
-  
+  ruby
+
 
 DEPENDENCIES
   activeadmin
