@@ -7,7 +7,7 @@ gem 'rails', '3.2.3'
 
 gem 'mysql2'
 gem 'mysql'
-gem 'activerecord-mysql-adapter'
+gem 'bcrypt-ruby', '~> 3.0.1', :platform => 'ruby' 
 gem 'haml',  '~> 3.1.1'
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
