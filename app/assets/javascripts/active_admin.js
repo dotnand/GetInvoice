@@ -29,4 +29,17 @@ $(function(){
 				total.val(unit_price.val()* quantity.val());	
 			}
 	});
+  
+  $.fx.speeds._default = 1000;
+	$( ".dialog" ).dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "explode"
+	});
+	$( "#opener" ).click(function() {
+      var div_to_open = "#" + $(this).attr("def_ref")
+		$( div_to_open).dialog( "open" );
+    $( div_to_open).show;
+		return false;
+	});
 });

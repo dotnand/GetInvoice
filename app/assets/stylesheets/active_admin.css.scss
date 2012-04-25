@@ -52,6 +52,10 @@ color: #000000;
 .invoice_template{
  padding: 80px;
 }
+.invoice_address h3{
+  font-size: 13px;
+  font-family: cursive;
+}
 .total {
  padding: 3px;
  background: none;
@@ -60,5 +64,8 @@ color: #000000;
 .no_back_ground td{
  background: none;
  color: #000000;
+}
+.hidden {
+  display: none;
 }
 

@@ -1,0 +1,1 @@
+#send_user.dialog.hidden  = form_tag('/admin/invoices/send_to_user') do    = hidden_field_tag "massage[invoice_id]" , @invoice.id      Account name:    = text_field_tag "account", @invoice.account.email , :readOnly => true    Massage:    = text_area_tag "massage[contents]"     = submit_tag "send" 

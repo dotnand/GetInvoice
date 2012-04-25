@@ -19,7 +19,7 @@ def create
 end
 
 def user_payment
-	@invoice = Invoice.last
+	@invoice = Invoice.find(params[:id])
 end
 
   def edit

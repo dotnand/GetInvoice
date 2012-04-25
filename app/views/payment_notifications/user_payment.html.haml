@@ -17,15 +17,17 @@
         %td.c28
           %p.c2.title
             %a{:name => "h.wo1vov4esjam"}
-            %span INVOICE
-            %br
+            %span 
+              INVOICE
+          %br
+          = "INVOICE NO#INVO#{@invoice.id}"
             
           %p
             = @invoice.created_at.to_formatted_s(:long)
-        %td.c21
+        %td.c21.invoice_address
           %h3.c2.c13
             %a{:name => "h.gk0m3xomtser"}
-            %span 
+            %span.c28 
               %br
               = @invoice.account.display_name
           %h3.c2.c13
@@ -147,15 +149,7 @@
                   %p.c2
                     %span.c9 PAYMENT TERMS
                   %p.c2
-                    %span To be made payable to First name, Last name
-                  %p.c2.c6
-                    %span.c9
-              %tr.c26
-                %td.c19
-                  %p.c2
-                    %span.c9 ADDRESS
-                  %p.c2
-                    %span To be made payable to First name, Last name
+                    %span write some terms and conditions
                   %p.c2.c6
                     %span.c9
           %p.c2.c6
@@ -170,18 +164,29 @@
               %tr.c22
                 %td.c20
                   %p.c2
-                    %span.c9 APPROVED BY
+                    %span.c9 
+                      = "APPROVED BY -"
+                      XYZ Company                      
               %tr.c22
                 %td.c20
                   %p.c2
-                    %span.c9 NAME
+                    %span.c9 
+                      = "Email -"
+                      = current_user.email                      
               %tr.c22
                 %td.c20
                   %p.c2
-                    %span.c9 FOR
+                    %span.c9 
+                      = "FOR -"
+                      = @invoice.account.display_name
               %tr.c22
                 %td.c20
                   %p.c2
-                    %span.c9 DATE
+                    %span.c9 
+                      = "DATE -"
+                      = @invoice.created_at.to_formatted_s(:long)
           %p.c2.c6
             %span.c9  
+              Please 
+              = link_to "Click", @invoice.paypal_url(homes_url, payment_notifications_url)
+              here to pay now.

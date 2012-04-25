@@ -1,0 +1,10 @@
+%p
+  %b
+    = "Dear #{@contact.account.display_name}"
+%p
+  An invoice is created by #{@contact.admin_user.email}, 
+%p 
+  = @contact.contents
+%p
+  To view your invoice click 
+  = link_to "here", user_payment_payment_notifications_url(:id => @contact.invoice_id)  

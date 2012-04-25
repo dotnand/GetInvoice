@@ -6,6 +6,7 @@ Getinvoice::Application.routes.draw do
   namespace :admin do
 	resources :invoices do
 		get :autocomplete_product_name, :on => :member
+    post :send_to_user, :on => :collection
 	end
   end
   resources :payment_notifications do
