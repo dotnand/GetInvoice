@@ -41,4 +41,23 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => :memberships_enabled?
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
 
+  section "Simple steps for managing your shope", :priority => 1 do
+    ul do
+      li "First add your all products"
+      li "Now add your custumer as account."
+      li "Then go to invoice and create it."
+      li "Send the invoice to the custumer so that custermer can pay online."
+      li "Lets us start..."
+    end
+  end
+  section "Recent Invoices" do
+    table_for Invoice.order("created_at desc").limit(5) do
+      column :account do |invoice|
+        link_to invoice.account.display_name, admin_invoice_path(invoice)
+      end
+      column :status
+      column :created_at
+    end
+    strong { link_to "View All Invoice", admin_invoices_path }
+  end  
 end
