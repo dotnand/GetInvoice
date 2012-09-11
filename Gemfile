@@ -15,6 +15,7 @@ gem "nifty-generators", :group => :development
 gem "formtastic", "~> 2.1.1"
 gem "cancan"
 gem 'rails3-jquery-autocomplete'
+gem 'therubyracer'
 
 
 group :production do
